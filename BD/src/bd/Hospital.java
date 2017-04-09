@@ -124,6 +124,36 @@ public class Hospital
         }
     }
 
+    
+    public void getAppointment(String name1)
+    {
+        if(Appointment.getAppointment().length==0)
+        {
+            System.out.println("There is no appointments");
+        }
+        else
+        {
+            boolean a=false;
+            for(int  i=0 ; i  < Appointment.getAppointment().length ; i++)
+            {
+                if( Appointment.getAppointment()[i].getHospital().getName().equals(name1))
+                 if(Appointment.getAppointment()[i].isFromDoner() && Appointment.getAppointment()[i].isFromReceiver())
+                {
+                    a=true;
+                    System.out.println(Appointment.getAppointment()[i].toString());
+                }
+            }
+            
+            if(!a)
+            {
+                System.out.println("There is no appointments in this hospital");
+            }
+        }
+    }
+    
+    
+    
+    
     @Override
     public String toString() {
         return "Hospital{" + "name=" + name + ", area=" + area + ", city=" + city + ", street=" + street + ", phone=" + phone + ", start=" + start + ", close=" + close + ", DateC=" + DateC + '}';
